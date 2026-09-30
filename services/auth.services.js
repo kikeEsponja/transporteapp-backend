@@ -151,7 +151,8 @@ const solicitarRecuperacion = async (email) => {
     //console.log('TOKEN DE RECUPERACIÓN: ', token);
 
     // const enlace = `http://localhost:3000/vistas/recupera.html?token=${token}`; // para local
-    const enlace = `https://trasladoscontrol.netlify.app/vistas/recupera.html?token=${token}`; // para remoto
+    //const enlace = `https://trasladoscontrol.netlify.app/vistas/recupera.html?token=${token}`; // para remoto
+    const enlace = `https://transporteapp-backend.onrender.com/vistas/recupera.html?token=${token}`;
 
     await emailService.enviarCorreoRecuperacion(
         usuario.email,
