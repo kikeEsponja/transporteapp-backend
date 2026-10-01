@@ -16,7 +16,7 @@ console.log('veamos qué hay aquí');
     }
 });*/
 
-const enviarCorreoRecuperacion = async (email, enlace) => {
+/*const enviarCorreoRecuperacion = async (email, enlace) => {
     const resultado = await resend.emails.send({
         from: 'onboarding@resend.dev',
         to: email,
@@ -25,7 +25,21 @@ const enviarCorreoRecuperacion = async (email, enlace) => {
     });
 
     return resultado;
-};
+};*/
+
+const { data, error } = await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: email,
+    subject: 'recuperación de contraseña',
+    text: `Usa este enlace para restablecer tu contraseña: ${enlace}`
+});
+
+if(error){
+    console.error('Error de Resend: ', error);
+    throw new Error('No se pudo enviar el correo de recuperación');
+}
+
+console.log('Correo aceptado por Resend: ', data?.id);
 
 module.exports = {
     enviarCorreoRecuperacion
