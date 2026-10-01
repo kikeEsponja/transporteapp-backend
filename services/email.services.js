@@ -4,7 +4,7 @@ const { Resend } = require('resend');
 require('dotenv').config();
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
+console.log('veamos qué hay aquí');
 /*const transporter = nodemailer.createTransport({
     //service: 'gmail', funciona en local
     host: 'smtp.gmail.com',
